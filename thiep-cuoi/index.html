@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp Cưới Online</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #fcf8f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    #envelope {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #c94a44;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #content {
+      display: none; /* Ban đầu ẩn nội dung chính đi */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- File nhạc chuẩn bị sẵn -->
+  <audio id="bgMusic" src="nhac_intro1.mp3" loop></audio>
+
+  <!-- Màn hình mở thiệp ban đầu -->
+  <div id="envelope">
+    <h2>Thiệp Mời Thành Hôn</h2>
+    <p>Trân trọng kính mời quý khách</p>
+    <button onclick="openCard()">Chạm để mở thiệp</button>
+  </div>
+
+  <!-- Nội dung thiệp sau khi mở -->
+  <div id="content">
+    <h1>Lễ Thành Hôn</h1>
+    <p>Chào mừng bạn đến với đám cưới của anh chị!</p>
+    <p>🎵 Nhạc đang phát...</p>
+  </div>
+
+  <script>
+    function openCard() {
+      // 1. Phát nhạc
+      const music = document.getElementById('bgMusic');
+      music.play();
+
+      // 2. Ẩn phong bì và hiện nội dung
+      document.getElementById('envelope').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
