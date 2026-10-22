@@ -3,66 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thiệp Cưới Online</title>
-  
-  <!-- Google Fonts -->
+  <title>Thiệp Cưới Đình Vũ & Đình Vũ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-  <!-- File CSS riêng -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Audio phát nhạc -->
   <audio id="bgMusic" src="nhac_intro1.mp3" loop></audio>
-
-  <!-- Nút đĩa nhạc -->
   <button id="musicToggle" class="music-btn" onclick="toggleMusic()" title="Bật/Tắt nhạc">🎵</button>
+  <div id="sparks"></div>
+  <div id="lb" onclick="this.classList.remove('on')"><img alt=""></div>
 
-  <div class="mobile-container">
-    
-    <!-- 1. Bìa mở thiệp -->
-    <div id="cover-screen">
-      <div class="cover-title">Save The Date</div>
-      <div class="cover-names">Minh Trí & Thùy Dung</div>
-      <button class="btn-open" onclick="openInvitation()">CHẠM ĐỂ MỞ THIỆP</button>
-    </div>
-
-    <!-- 2. Thân thiệp -->
-    <div class="invitation-body">
-      <div class="invitation-tag">Lễ Thành Hôn</div>
-      
-      <div class="couple-names">
-        HOÀNG MINH TRÍ
-        <span>&</span>
-        TRẦN THÙY DUNG
+  <div id="envelope-screen">
+    <div class="envelope-wrapper">
+      <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="pocket"></div>
+        <div class="letter-preview">
+          <p class="preview-tag">Wedding Invitation</p>
+          <p class="preview-names">Đình Vũ & Đình Vũ</p>
+        </div>
+        <div class="wax-seal" onclick="openEnvelope()"><span class="seal-inner">💍</span></div>
       </div>
-
-      <!-- Ảnh cưới chính -->
-      <img src="anh-cuoi.jpg" alt="Ảnh cưới" class="hero-photo">
-
-      <!-- Thông tin địa điểm & thời gian -->
-      <div class="event-card">
-        <h3 class="event-title">TIỆC MỪNG THÀNH HÔN</h3>
-        <p class="event-time">11:00 — Chủ Nhật, 20/12/2026</p>
-        <p class="event-lunar">(Nhằm ngày 12 tháng 11 năm Bính Ngọ)</p>
-        
-        <p class="event-address">
-          <strong>Trung tâm Tiệc cưới Trống Đồng Palace</strong><br>
-          Số 65 Quán Sứ, Hoàn Kiếm, Hà Nội
-        </p>
-
-        <a href="https://maps.google.com" target="_blank" class="btn-maps">
-          📍 Xem chỉ đường Google Maps
-        </a>
-      </div>
-
+      <p class="hint-text">Chạm vào con dấu để mở thiệp</p>
     </div>
   </div>
 
-  <!-- File JavaScript riêng -->
+  <main class="mobile-container" id="mainCard">
+
+    <!-- ẢNH 1: ảnh bìa (nên dùng ảnh dọc) -->
+    <header class="hero par">
+      <img src="anh-cuoi.jpg" alt="Ảnh bìa">
+      <div class="hero-in">
+        <div class="tag reveal">SAVE THE DATE</div>
+        <h1 class="names reveal">Đình Vũ<span class="gold">&</span>Đình Vũ</h1>
+        <p class="date reveal">20 · 12 · 2026</p>
+        <div class="cue">⌄</div>
+      </div>
+    </header>
+
+    <!-- ẢNH 2, 3: chân dung chú rể / cô dâu (ảnh dọc) -->
+    <section>
+      <h2 class="title gold reveal">Hai Cung Rồng</h2>
+      <p class="sub reveal">Cùng sinh năm 2000 — tuổi Canh Thìn</p>
+      <div class="duo">
+        <figure class="arch reveal l"><img src="anh-cuoi.jpg" alt="Chú rể"><b>Đình Vũ</b><small>Chú rể</small></figure>
+        <svg class="badge reveal z" viewBox="0 0 100 100">
+          <g class="rot"><circle cx="50" cy="50" r="48" fill="#0f0d0c" stroke="#c9a45c"/>
+          <path id="cc" d="M50 50m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0" fill="none"/>
+          <text font-size="8.4" fill="#e8cf8f" letter-spacing="1.6"><textPath href="#cc">CANH THÌN 2000 · RỒNG GẶP RỒNG ·</textPath></text></g>
+          <text x="50" y="62" font-size="28" text-anchor="middle">🐉</text>
+        </svg>
+        <figure class="arch reveal r"><img src="anh-cuoi.jpg" alt="Cô dâu"><b>Đình Vũ</b><small>Cô dâu</small></figure>
+      </div>
+      <p class="quote reveal">Hai con rồng bay đi khắp bốn phương, rồi cùng hạ cánh về một tổ ấm.</p>
+    </section>
+
+    <section>
+      <h2 class="title gold reveal">Cùng đếm ngược</h2>
+      <div class="cd reveal z">
+        <div class="time-item"><span id="days">00</span><small>Ngày</small></div>
+        <div class="time-item"><span id="hours">00</span><small>Giờ</small></div>
+        <div class="time-item"><span id="minutes">00</span><small>Phút</small></div>
+        <div class="time-item"><span id="seconds">00</span><small>Giây</small></div>
+      </div>
+    </section>
+
+    <!-- ẢNH 4, 5, 6: Love Story (ảnh dọc 4:5) -->
+    <section>
+      <h2 class="title gold reveal">Love Story</h2>
+      <p class="sub reveal">Chặng đường bên nhau</p>
+      <div class="chap reveal">
+        <div class="pol"><img src="anh-cuoi.jpg" alt=""><em>Tháng 10, 2022</em></div>
+        <h4>Lần đầu gặp gỡ</h4>
+        <p>Một buổi chiều thu vô tình chạm mặt, và câu chuyện bắt đầu từ ánh nhìn đầu tiên.</p>
+      </div>
+      <div class="chap reveal">
+        <div class="pol"><img src="anh-cuoi.jpg" alt=""><em>Tháng 02, 2024</em></div>
+        <h4>Lời tỏ tình</h4>
+        <p>Sau những chuyến đi cùng nhau, hai trái tim tìm thấy một nhịp đập chung.</p>
+      </div>
+      <div class="chap reveal">
+        <span class="twist">Plot twist</span>
+        <div class="pol"><img src="anh-cuoi.jpg" alt=""><em>Tháng 08, 2026</em></div>
+        <h4>She said “YES!”</h4>
+        <p>Khoảnh khắc thiêng liêng nhất, khi chiếc nhẫn được trao đi.</p>
+      </div>
+    </section>
+
+    <!-- ẢNH 7: dải ảnh ngang (parallax) -->
+    <div class="band par">
+      <img src="anh-cuoi.jpg" alt="">
+      <p class="reveal">Em là điều đẹp nhất<br>anh từng gặp.</p>
+    </div>
+
+    <!-- ẢNH 8–14: album (ảnh nào cũng được, 1 ảnh rộng + 2 ảnh dọc) -->
+    <section>
+      <h2 class="title gold reveal">Album cưới</h2>
+      <p class="sub reveal">Chạm vào ảnh để xem lớn</p>
+      <div class="grid">
+        <img class="w reveal z" src="anh-cuoi.jpg" alt="">
+        <img class="t reveal" src="anh-cuoi.jpg" alt="">
+        <img class="reveal" src="anh-cuoi.jpg" alt="">
+        <img class="reveal" src="anh-cuoi.jpg" alt="">
+        <img class="t reveal" src="anh-cuoi.jpg" alt="">
+        <img class="reveal" src="anh-cuoi.jpg" alt="">
+        <img class="reveal" src="anh-cuoi.jpg" alt="">
+      </div>
+    </section>
+
+    <section>
+      <div class="event-card reveal z">
+        <h3 class="event-title">TIỆC MỪNG THÀNH HÔN</h3>
+        <p class="event-time">11:00 — Chủ Nhật, 20/12/2026</p>
+        <p class="event-lunar">(Nhằm ngày 12 tháng 11 năm Bính Ngọ)</p>
+        <div class="divider"></div>
+        <p class="event-address"><strong>Trung tâm Tiệc cưới Trống Đồng Palace</strong><br>Số 65 Quán Sứ, Hoàn Kiếm, Hà Nội</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Trống+Đồng+Palace+65+Quán+Sứ+Hà+Nội" target="_blank" class="btn-maps">📍 Chỉ đường Google Maps</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="title gold reveal">Bạn sẽ đến chứ?</h2>
+      <div class="row">
+        <button class="btn" id="yes">Tôi sẽ có mặt 🎉</button>
+        <button class="btn o" id="no">Tôi bận mất rồi 😢</button>
+      </div>
+      <p id="rsvpMsg"></p>
+    </section>
+
+    <!-- ẢNH 15: ảnh kết (ảnh ngang hoặc dọc đều được) -->
+    <footer class="foot par">
+      <img src="anh-cuoi.jpg" alt="">
+      <div class="foot-in reveal">
+        <h2 class="gold">Cảm ơn</h2>
+        <p>Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng tôi!</p>
+      </div>
+    </footer>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
