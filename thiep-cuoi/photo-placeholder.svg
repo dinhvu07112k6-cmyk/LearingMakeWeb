@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 900" role="img" aria-label="Khung ảnh cưới mẫu">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8ee"/><stop offset="1" stop-color="#ead6bb"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8ca8d"/><stop offset=".5" stop-color="#bd8e45"/><stop offset="1" stop-color="#8c622b"/></linearGradient>
+  </defs>
+  <rect width="700" height="900" fill="url(#bg)"/>
+  <rect x="22" y="22" width="656" height="856" fill="none" stroke="url(#gold)" stroke-width="2"/>
+  <rect x="38" y="38" width="624" height="824" fill="none" stroke="#bd8e45" stroke-opacity=".45"/>
+  <g fill="none" stroke="#a42336" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".72">
+    <path d="M135 250 C70 190 130 115 200 140 C255 160 240 220 200 225 C165 230 155 190 185 180 C207 173 218 198 203 207"/>
+    <path d="M135 250 L102 237 L111 215 L135 221 L148 204 M173 149 L167 124 L189 135 L208 115 L215 140"/>
+    <path d="M565 650 C630 710 570 785 500 760 C445 740 460 680 500 675 C535 670 545 710 515 720 C493 727 482 702 497 693"/>
+    <path d="M565 650 L598 663 L589 685 L565 679 L552 696 M527 751 L533 776 L511 765 L492 785 L485 760"/>
+  </g>
+  <g fill="url(#gold)"><circle cx="350" cy="380" r="85" fill-opacity=".13" stroke="url(#gold)" stroke-width="2"/><circle cx="350" cy="380" r="70" fill="none" stroke="url(#gold)" stroke-width="1" stroke-dasharray="3 7"/></g>
+  <text x="350" y="365" text-anchor="middle" font-family="Georgia,serif" font-size="58" fill="#a42336">囍</text>
+  <text x="350" y="435" text-anchor="middle" font-family="Georgia,serif" font-size="23" letter-spacing="5" fill="#8c622b">CANH THÌN 2000</text>
+  <text x="350" y="550" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="35" fill="#731a2a">Our little moments</text>
+  <text x="350" y="592" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" letter-spacing="4" fill="#8e7772">THAY BẰNG ẢNH THẬT</text>
+  <path d="M265 635 H435" stroke="url(#gold)" stroke-width="1.5"/><text x="350" y="665" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#a42336">20 · 12 · 2026</text>
+</svg>
